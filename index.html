@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="reminder">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reminders</title>
+    <link rel="stylesheet" href="./stylesheets/index.css">
+  </head>
+  <body ng-controller="listCtrl" ng-click="hideop()" >
+    <div class="lists">
+      <div class="lists-title">
+        <div class="logo">
+        </div>
+        <div class="title">
+	  提醒事项
+        </div>
+        <div class="addlist" ng-click="addItem($event)">
+        </div>
+      </div>
+      <ul>
+        <li class="plan">
+	  <span class="plan-icon"></span>
+	  已计划
+	  <div class="row-divider"></div>
+	</li>
+        <li class="plan" ng-repeat="li in lists track by $index" ng-class="{'list-active':(li==currentlist)}" ng-click="setCurrent(li)">
+	  <span class="list-color-{{li.color}}"></span>
+	  <input type="text" ng-model="li.name" ng-blur="saveData()" value="{{li.name}}">
+	  <div class="row-divider-2"></div>
+	</li>
+      </ul>
+    </div>
+    <div class="detail">
+      <div class="sc-view">
+	<div class="sc-view-left">
+	  <span class="search-icon"></span>
+	  搜索所有提醒
+	</div>
+	<div class="sc-view-right"></div>
+      </div>
+
+      <div class="sc-view-middle {{currentlist.color}}">
+	<div class="sc-middle-title ">
+	  <span ng-bind="currentlist.name"></span>
+	  <div class="options" ng-click="showhideop($event)" ng-show="currentlist">选项</div>
+	</div>
+
+	<div id="options-detail" class="options-detail" ng-class="{'show':isshow,'hide':!isshow}" >
+	  <div class="container">
+	    <input type="text" class="i-name" ng-model="currentlist.name" value="{{currentlist.name}}" />
+            <p class="color-list">列表颜色</p>
+            <ul class="clearfix">
+	      <li ng-repeat="color in colors" ng-click="currentlist.color=color" ng-class="[color,{'current-c':(color==currentlist.color)}]">
+		<span class="circle {{color}}"></span>
+	      </li>
+            </ul>
+	    <span ng-click="deleteItem()" class="op-delete">删除</span>
+	    <span ng-click="cancle()" class="op-cancle">取消</span>
+	    <span ng-click="saveData()" class="op-done">完成</span>
+	  </div>
+	</div>
+
+	<div class="sc-view-main {{currentlist.color}}">
+	  <div class="row-divider-top"></div>
+	  <div class="item-done"  ng-click="toggleshowdone()" ng-show="currentlist">
+            <span class="state" ng-class="{'active':isshowdone}"></span>
+	    已完成{{countdoneitem()}}项
+	  </div>
+
+	  <div class="item {{currentlist.color}}" ng-show="todo.isdone&&isshowdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{'item-active':todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control checked" ng-click="todo.isdone=false;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name">
+	    <div class="row-divider-top" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail {{currentlist.color}}" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div>
+
+	  <div class="divider" ng-show="isshowdone&&countdoneitem()!==0"></div>
+
+	  <div class="item {{currentlist.color}}" ng-show="!todo.isdone" ng-repeat="todo in currentlist.todos track by $index" ng-class="{'item-active':todo==currenttodo}" ng-click="setcurrenttodo(todo)">
+	    <div class="control unchecked" ng-click="todo.isdone=true;saveData()"></div>
+	    <input type="text" ng-model="todo.name" value="todo.name">
+	    <div class="row-divider-top" ng-hide="todo==currenttodo"></div>
+	    <div class="todo-detail {{currentlist.color}}" ng-click="toggletododetail($event)" ng-show="todo==currenttodo">详细信息</div>
+	  </div>
+
+	  <div class="item {{currentlist.color}} new" ng-click="addtodo()" ng-show="currentlist">
+	    新条目
+	    <div class="row-divider-top"></div>
+	    <div class="row-divider-bottom"></div>
+	  </div>
+	</div>
+      </div>
+
+      <div id="todo-detail" class="options-detail" ng-class="{'show':isshow2,'hide':!isshow2}" >
+	<div class="container">
+	  <span ng-click="deletetodo()" class="op-delete">删除</span>
+	  <span ng-click="isshow2=false" class="op-done">完成</span>
+	</div>
+      </div>
+
+    </div>
+    <script src="./scripts/angular.js"></script>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>

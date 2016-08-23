@@ -1,0 +1,655 @@
+ul, p, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+/**{
+	position:relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+}*/
+.reminder {
+  width: 100%;
+  height: 100%;
+  background: red;
+}
+
+.reminder .lists {
+  width: 30%;
+  overflow: hidden;
+  min-width: 180px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  background: #383836;
+}
+
+.reminder .lists .head {
+  width: 100%;
+}
+
+.reminder .lists .head .header {
+  width: 100%;
+  height: 44px;
+  border-bottom: 1px solid black;
+  position: relative;
+  color: grey;
+  line-height: 44px;
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+
+.reminder .lists .head .header .plus {
+  width: 23px;
+  height: 23px;
+  background: green;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  right: 8px;
+  background-image: url("../image/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -23px -526px;
+  cursor: pointer;
+}
+
+.reminder .lists .head .plan {
+  width: 100%;
+  height: 44px;
+  border-bottom: 1px solid #222;
+  position: relative;
+  color: #fff;
+}
+
+.reminder .lists .head .plan .naozhong {
+  width: 24px;
+  height: 24px;
+  background: green;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  left: 15px;
+  background: url("../image/packed-5.png") no-repeat;
+  background-position: -10px -367px;
+}
+
+.reminder .lists .list-container {
+  width: 100%;
+}
+
+.reminder .lists .list-container li {
+  position: relative;
+  width: 100%;
+  height: 44px;
+  line-height: 34px;
+  color: #fff;
+}
+
+.reminder .lists .list-container li input {
+  border: none;
+  box-sizing: border-box;
+  border-bottom: 1px solid #2D2D2B;
+  width: 88%;
+  height: 100%;
+  outline: none;
+  display: block;
+  margin-left: 48px;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+}
+
+.reminder .lists .list-container li span {
+  width: 17px;
+  height: 17px;
+  background: green;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  display: inline-block;
+  left: 17px;
+  background: url("../image/packed-5.png") -51px -571px no-repeat;
+}
+
+.reminder .lists .list-container li span.pink {
+  background: url("../image/packed-5.png") -102px -571px no-repeat;
+}
+
+.reminder .lists .list-container li span.green {
+  background: url("../image/packed-5.png") -85px -571px no-repeat;
+}
+
+.reminder .lists .list-container li span.yellow {
+  background: url("../image/packed-5.png") -34px -571px no-repeat;
+}
+
+.reminder .lists .list-container li span.blue {
+  background: url("../image/packed-5.png") -68px -571px no-repeat;
+}
+
+.reminder .lists .list-container li span.orange {
+  background: url("../image/packed-5.png") -51px -571px no-repeat;
+}
+
+.reminder .lists .list-container li span.purple {
+  background: url("../image/packed-5.png") -17px -571px no-repeat;
+}
+
+.reminder .lists .list-container li span.brow {
+  background: url("../image/packed-5.png") -133px -550px no-repeat;
+}
+
+.reminder .lists .list-container li.active {
+  background: #2D2D2B;
+}
+
+.reminder .container {
+  width: 70%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.reminder .container .searching {
+  width: 100%;
+  height: 43px;
+  border-bottom: 1px solid #bbb;
+}
+
+.reminder .container .searching .search {
+  width: 100%;
+  height: 44px;
+  width: 50%;
+  height: 44px;
+  float: left;
+  line-height: 44px;
+  font-size: 18px;
+  padding-left: 45px;
+  box-sizing: border-box;
+  position: relative;
+  color: #bbb;
+}
+
+.reminder .container .searching .search span {
+  position: absolute;
+  top: 11px;
+  left: 15px;
+  width: 24px;
+  height: 24px;
+  background: url("../image/packed-5.png") -138px -359px;
+}
+
+.reminder .container .view-middle {
+  width: 100%;
+  min-height: 168px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  position: relative;
+}
+
+.reminder .container .view-middle .middle-title {
+  position: relative;
+  width: 100%;
+  height: 58px;
+  box-sizing: border-box;
+  padding-left: 30px;
+  line-height: 50px;
+  font-size: 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.reminder .container .view-middle .middle-title .right {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  height: 58px;
+  padding-top: 8px;
+  font-size: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.reminder .container .view-middle .options-detail.show {
+  display: block;
+}
+
+.reminder .container .view-middle .options-detail {
+  width: 355px;
+  height: 226px;
+  position: absolute;
+  right: 55px;
+  top: -45px;
+  z-index: 10;
+  background: #ddd;
+  display: none;
+}
+
+.reminder .container .view-middle .options-detail::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  bottom: 0;
+  padding: 4px;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15), 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.reminder .container .view-middle .options-detail .content-box {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 20px 0 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.reminder .container .view-middle .options-detail .content-box .i-name {
+  width: 314px;
+  height: 42px;
+  font-size: 25px;
+  outline: none;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  padding-left: 13px;
+  color: inherit;
+}
+
+.reminder .container .view-middle .options-detail .content-box .color-list {
+  color: black;
+  line-height: 55px;
+  padding-left: 3px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 14px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li {
+  width: 33px;
+  height: 33px;
+  margin-left: 10px;
+  float: left;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li .circle {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin: 4px 0px 0 4px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li .green.circle {
+  background: url("../image/stylesheet-1.png") 0px -256px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li .yellow.circle {
+  background: url("../image/stylesheet-1.png") 0px -306px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li .blue.circle {
+  background: url("../image/stylesheet-1.png") 0px -281px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li .orange.circle {
+  background: url("../image/stylesheet-1.png") 0px -381px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li .purple.circle {
+  background: url("../image/stylesheet-1.png") 0px -231px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li .brow.circle {
+  background: url("../image/stylesheet-1.png") 0px -331px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul li .pink.circle {
+  background: url("../image/stylesheet-1.png") 0px -356px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul .yellow.current-c {
+  background: url("../image/stylesheet-1.png") 0px -99px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul .green.current-c {
+  background: url("../image/stylesheet-1.png") 0px -33px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul .blue.current-c {
+  background: url("../image/stylesheet-1.png") 0px -66px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul .orange.current-c {
+  background: url("../image/stylesheet-1.png") 0px -198px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul .purple.current-c {
+  background: url("../image/stylesheet-1.png") 0px 0px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul .brow.current-c {
+  background: url("../image/stylesheet-1.png") 0px -132px;
+}
+
+.reminder .container .view-middle .options-detail .content-box ul .pink.current-c {
+  background: url("../image/stylesheet-1.png") 0px -165px;
+}
+
+.reminder .container .view-middle .options-detail .content-box .op-delete {
+  position: absolute;
+  font-size: 18px;
+  color: red;
+  bottom: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.reminder .container .view-middle .options-detail .content-box .op-cancle {
+  position: absolute;
+  font-size: 18px;
+  color: blue;
+  bottom: 20px;
+  left: 65%;
+  padding-right: 20px;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.reminder .container .view-middle .options-detail .content-box .op-done {
+  cursor: pointer;
+  position: absolute;
+  font-size: 18px;
+  color: blue;
+  font-weight: bolder;
+  bottom: 20px;
+  right: 10px;
+}
+
+.reminder .container .view-middle .item-view {
+  width: 100%;
+  position: relative;
+  padding: 6px 0 0 0;
+  box-sizing: border-box;
+}
+
+.reminder .container .view-middle .item-view .active.pink {
+  background: rgba(255, 41, 104, 0.5);
+  border: 1px solid #ff2968;
+  border-left: none;
+  border-right: none;
+}
+
+.reminder .container .view-middle .item-view .active.pink .todo-info {
+  display: block;
+}
+
+.reminder .container .view-middle .item-view .item.pink .control.checked {
+  background: url("../image/packed-5.png") -64px -401px;
+}
+
+.reminder .container .view-middle .item-view .item.pink .control.unchecked {
+  background: url("../image/packed-5.png") -128px -401px;
+}
+
+.reminder .container .view-middle .item-view .item.pink .todo-info {
+  display: none;
+}
+
+.reminder .container .view-middle .item-view .item-done {
+  width: 100%;
+  min-height: 52px;
+  padding-left: 58px;
+  line-height: 52px;
+  color: #333;
+  font-size: 19px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.reminder .container .view-middle .item-view .item-done .item-active {
+  margin-left: -58px;
+  border-bottom: 1px solid #ccc;
+}
+
+.reminder .container .view-middle .item-view .item-done span {
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  background: url("../image/packed-5.png") -92px -526px;
+}
+
+.reminder .container .view-middle .item-view .item-undone {
+  position: relative;
+  display: block;
+  height: 52px;
+  line-height: 52px;
+  font-size: 19px;
+  padding-left: 58px;
+  box-sizing: border-box;
+  border-left: none;
+  border-right: none;
+}
+
+.reminder .container .view-middle .item-view .item-undone .control {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 10px;
+  left: 21px;
+}
+
+.reminder .container .view-middle .item-view .item-undone .control.unchecked {
+  background: url("../image/packed-5.png") -42px -359px;
+}
+
+.reminder .container .view-middle .item-view .item-undone .control.checked {
+  background: url("../image/packed-5.png") -32px -401px;
+}
+
+.reminder .container .view-middle .item-view .item-undone input {
+  outline: none;
+  display: inline;
+  border: none;
+  background: none;
+  font-size: 18px;
+  margin-left: 23px;
+  height: 44px;
+  color: #333;
+}
+
+.reminder .container .view-middle .item-view .item-undone .todo-info {
+  position: absolute;
+  right: 40px;
+  top: 0px;
+  line-height: 52px;
+  font-size: 18px;
+}
+
+.reminder .container .view-middle .item-view .item-active {
+  position: relative;
+  display: block;
+  height: 52px;
+  line-height: 52px;
+  font-size: 19px;
+  padding-left: 58px;
+  box-sizing: border-box;
+  background: rgba(73, 191, 31, 0.1);
+  border-left: none;
+  border-right: none;
+}
+
+.reminder .container .view-middle .item-view .item-active .control {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 10px;
+  left: 21px;
+}
+
+.reminder .container .view-middle .item-view .item-active .control.unchecked {
+  background: url("../image/packed-5.png") -42px -359px;
+}
+
+.reminder .container .view-middle .item-view .item-active .control.checked {
+  background: url("../image/packed-5.png") -32px -401px;
+}
+
+.reminder .container .view-middle .item-view .item-active input {
+  outline: none;
+  display: inline;
+  border: none;
+  background: none;
+  font-size: 18px;
+  margin-left: 23px;
+  height: 44px;
+}
+
+.reminder .container .view-middle .item-view .item-active .todo-info {
+  position: absolute;
+  right: 40px;
+  top: 0px;
+  line-height: 52px;
+  font-size: 18px;
+}
+
+.reminder .container .view-middle .item-view .item-new {
+  position: relative;
+  height: 52px;
+  line-height: 52px;
+  color: #333;
+  font-size: 19px;
+  padding-left: 58px;
+  box-sizing: border-box;
+  background: rgba(73, 191, 31, 0.1);
+  border: 1px solid #888;
+  border-left: none;
+  border-right: none;
+  display: block;
+}
+
+.reminder .container .options-detail {
+  width: 355px;
+  height: 226px;
+  position: absolute;
+  top: 214px;
+  right: 120px;
+  z-index: 10;
+  background: red;
+  display: none;
+}
+
+.reminder .container .options-detail::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  bottom: 0;
+  padding: 4px;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15), 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.reminder .container .options-detail .container {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 0 0 20px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.reminder .container .options-detail .container .op-delete {
+  position: absolute;
+  font-size: 18px;
+  color: red;
+  bottom: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.reminder .container .options-detail .container .op-done {
+  cursor: pointer;
+  position: absolute;
+  font-size: 18px;
+  color: blue;
+  font-weight: bolder;
+  bottom: 20px;
+  right: 10px;
+}
+
+.reminder .container.green {
+  color: green;
+}
+
+.reminder .container.green .item {
+  color: green;
+}
+
+.reminder .container.yellow {
+  color: yellow;
+}
+
+.reminder .container.blue {
+  color: blue;
+}
+
+.reminder .container.orange {
+  color: orange;
+}
+
+.reminder .container.purple {
+  color: purple;
+}
+
+.reminder .container.brow {
+  color: brow;
+}
+
+.reminder .container.pink {
+  color: #DB0346;
+}
+
+.reminder .container.pink .item {
+  color: #DB0346;
+}
