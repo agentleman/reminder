@@ -29,10 +29,10 @@
           @include cube(23px);
           @include topbottom;
           right: 8px;
-          background-image: url('../image/packed-5.png');
-          background-repeat: no-repeat;
-          background-position: -23px -526px;
-          cursor: pointer;
+          //background-image: url('../image/packed-5.png');
+          //background-repeat: no-repeat;
+          //background-position: -23px -526px;
+          //cursor: pointer;
         }
       }
       .plan{
@@ -543,7 +543,7 @@
       color:blue;
     }
     .container.orange{
-      color:orange;
+      color: #ff7569;
     }
     .container.purple{
       color:purple;
@@ -555,6 +555,7 @@
       color:#DB0346;
       .item{
         color:#DB0346;
+        text-align: center;
       }
     }
 }

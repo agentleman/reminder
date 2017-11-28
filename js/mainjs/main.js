@@ -42,4 +42,4 @@ var reminder=angular.module('reminder',[]);
 
        }
      }
-   ])
+   ]);
